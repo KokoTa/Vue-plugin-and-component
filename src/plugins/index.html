@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+  <script src="./vue-toast-k/dist/vue-toast-k.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    // 使用包，包名为 VueToastK
+    console.log(VueToastK.default)
+    Vue.use(VueToastK.default);
+
+    const vue = new Vue({
+      el: '#app',
+      mounted() {
+        this.$vtk.show('Hello World');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "vue-toast-k",
+  "version": "1.0.0",
+  "description": "toast for vue",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "toast",
+    "vue"
+  ],
+  "author": "K",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.3.1",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^1.0.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "postcss-hexrgba": "^1.0.1",
+    "postcss-nested": "^4.1.0",
+    "vue-loader": "^15.4.2",
+    "vue-style-loader": "^4.1.2"
+  }
+}

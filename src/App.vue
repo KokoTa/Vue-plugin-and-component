@@ -12,7 +12,12 @@ export default {
   name: 'app',
   components: {
     HelloWorld
-  }
+  },
+  mounted() {
+    this.$vtk.show('HAHAHA', {
+      duration: 3000
+    });
+  },
 }
 </script>
 
