@@ -1,6 +1,7 @@
 // webpack.config.js
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 module.exports = {
   entry: "./src/index.js",
@@ -24,14 +25,15 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: [
-          'vue-style-loader',
-          'css-loader'
-        ]
+        loader: ExtractTextPlugin.extract({
+          use: 'css-loader',
+          fallback: 'vue-style-loader'
+        })
       }
     ]
   },
   plugins: [
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new ExtractTextPlugin("vue-toast-k.css")
   ]
 }

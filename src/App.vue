@@ -1,33 +1,76 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div id="nav">
+      <h1>Catalog</h1>
+      <template v-for="(key, value, index) in links">
+        <router-link class="link" :class="{ active: active === index }" :to="key" :key="index" @click.native="handleChoose(index)">{{value}}</router-link>
+      </template>
+    </div>
+    <router-view class="show-screen" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import links from './links.js'
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      links,
+      active: -1
+    }
   },
-  mounted() {
-    this.$vtk.show('HAHAHA', {
-      duration: 3000
-    });
-  },
+  methods: {
+    handleChoose(index) {
+      this.active = index;
+    }
+  }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+<style lang="scss">
+html, body, #app {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  position: relative;
+}
+
+#nav {
+  width: 200px;
+  height: 100%;
+  background: purple;
+  overflow: auto;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: white;
+  .link {
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+    background: pink;
+    line-height: 5;
+    color: white;
+    cursor: pointer;
+    transition: .25s ease;
+  }
+  .active {
+    background: coral;
+  }
+}
+
+.show-screen {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 200px;
+  right: 0;
+  background: lightblue;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 </style>
